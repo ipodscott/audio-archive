@@ -23,9 +23,9 @@
 			  $allEpisode = $filecount;
 			?>
 			  <div class="track-link">
-				<div class="track" data-src="<?= htmlspecialchars($file) ?>">
+				<div title"Play Audio" class="track" data-src="<?= htmlspecialchars($file) ?>">
 				  <img src="img/play.svg"/>
-				  <span class="tooltip"><?= $displayFileName ?><span class="tooltiptext"><?= $fileNameWithSpaces ?></span></span>
+				  <span title="<?= $fileNameWithSpaces ?>"><?= $displayFileName ?></span>
 				</div>
 				<a href="<?= htmlspecialchars($file) ?>" download class="dl-link"><img src="../img/download.svg"/></a>
 			  </div>

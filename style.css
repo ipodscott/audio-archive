@@ -3,17 +3,14 @@ html{
   background-color: #000;
 }
 body {
-  position: fixed;
   font-family: 'Lato', sans-serif;
   margin:0;
   padding:0;
   background-color:#000;
-  display:block
-  position:relative;
-  height: 100vh;
-  width: 100%;
-  overflow-y: scorll;
   color: #fff;
+}
+body.stop-scroll{
+  overflow: hidden;
 }
 p, ul, ol{
   color: #fff;
@@ -38,7 +35,7 @@ p, ul, ol{
 
 .background-overlay{
   display:block;
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   width:100%;
@@ -88,12 +85,18 @@ p, ul, ol{
 .title-flex{
   display:flex;
   justify-content:center;
-  gap: 20px;
+  gap: 10px;
+  opacity: 0.6;
+  transition: all 0.5s;
+}
+
+.title-flex:hover{
+  opacity: 1;
 }
 
 .title-flex.menu{
   width: 50px;
-  margin-left: 20px;
+  margin-left: 10px;
   justify-content: flex-start;
 }
 
@@ -104,7 +107,7 @@ p, ul, ol{
 .title-flex.right{
   display: flex;
   width: 150px;
-  margin-right: 40px;
+  margin-right: 10px;
   justify-content: flex-end !important;
   width: auto;
 }
@@ -122,18 +125,22 @@ p, ul, ol{
   }
   .center-title{
     font-size: 10px;
+    max-width: 200px;
+    text-align: center;
+    line-height: 1em;
   }
 }
 
 .homepage{
-  display:flex;
-    position:fixed;
+    display:flex;
+    position:relative;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width:100%;
     flex-direction:column;
-    height:100%;
-    overflow: hidden;
+    height:100vh;
+    overflow: auto;
     color: #fff;
     z-index: 0;
 }
@@ -142,6 +149,7 @@ p, ul, ol{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   width: calc(100% - 40px);
   max-width: 700px;
@@ -152,6 +160,8 @@ p, ul, ol{
 }
 
 .hp-info-blocks img{
+  display: block;
+  position: relative;
   margin-bottom: 10px;
 }
 
@@ -161,7 +171,7 @@ p, ul, ol{
 }
 
 .hp-info-block{
-  display: flex;
+  display: none;
   width:calc(100% - 40px);
   align-items: center;
   justify-content: space-between;
@@ -197,14 +207,13 @@ p, ul, ol{
   width:100%;
   margin-top: 51px;
   height: auto;
-  max-height:calc(100vh - 159px);
-  overflow-y:scroll;
-  margin-bottom:100px;
+  margin-bottom:108px;
   border-style:solid;
   border-width:0 0 1px 0;
   border-color:#444;
   overflow-x: hidden;
   background-color: #00000090;
+  box-shadow: 0 0 60px 0 #000000;
 }
 
 .track-link{
@@ -216,6 +225,10 @@ p, ul, ol{
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: #444;
+}
+
+.track-link:last-child{
+  border: none;
 }
 
 .track {
@@ -231,6 +244,7 @@ p, ul, ol{
   gap: 10px;
   align-items: center;
   font-size: 12px;
+  color: #fff;
   font-weight: normal;
   letter-spacing: 0.1em;
 }
@@ -291,78 +305,60 @@ p, ul, ol{
   background-color: #ff000050;
 }
 
-.menu-overlay {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    opacity: 0;
-    background: radial-gradient(ellipse at center,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
-    transition: all 0.5s;
-    z-index: 999;
-}
 
-/* CSS for the 'show' state of the menu-overlay element */
-.menu-overlay.show {
-    display: block;
-    top:0;
-    left: 0;
-    opacity: 1;
-    width: 100%;
-    height: 100vh;
-    border-radius: 0;
-    z-index: 999;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100 */
-    background: radial-gradient(ellipse at center,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-
-}
 .main-menu{
+  display: flex;
   position: fixed;
   top: 0;
-  left: -281px;
-  width: 280px;
+  left:-100vw;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
   height: 100vh;
   background-color: #000;
   z-index: 999;
-  border-style: solid;
-  border-width: 0 1px 0 0;
-  border-color:#444;
-  transition: all 0.5s;
-  transition-delay: 250ms;
+  transition: all 0.75s;
   -webkit-box-shadow: 0 0 20px 0 #00000050;
   box-shadow: 0 0 20px 0 #00000050;
+  opacity: 0;
+}
+
+.left-menu{
+  height:calc(100vh - 80px);
+  display: block;
+  margin-top: 50px;
+  position: relative;
+  width: calc(100vw - 80px);
+  overflow-y: scroll;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #444;
+  border-radius: 12px;
+}
+
+@media only screen and (max-width: 828px) and (max-height: 1792px) {
+  .left-menu{
+    height:calc(100vh - 160px);
+  }
 }
 
 .menu-btn, .home-btn{
   cursor: pointer;
 }
 
-.main-menu.show-menu{
-  left: 0;
+.home-btn{
+  max-width: 18px !important;
 }
 
-.menu-title{
-  widows: 100%;
-  text-align: center;
-  height: 50px;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-style: solid;
-  border-width: 0 0 1px 0;
-  border-color:#444;
+.main-menu.show-menu{
+  left: 0;
+  opacity: 1;
 }
 
 .close-menu{
   position: absolute;
-  right: 10px;
-  top: 15px;
+  right: 8px;
+  top: 10px;
   cursor: pointer;
 }
 
@@ -379,14 +375,12 @@ p, ul, ol{
   transition: all 0.5s;
 }
 
-.menu-link:hover{
-  background-color:#444;
+.menu-link:last-child{
+  border: none;
 }
 
-
-.left-menu{
-  height: calc(100vh - 50px);
-  overflow-y: scroll;
+.menu-link:hover{
+  background-color:#444;
 }
 
 .series-info{
@@ -578,7 +572,7 @@ p, ul, ol{
   align-items:center;
   gap:10px;
   font-size:12px;
-  margin-right:20px;
+  margin-right:10px;
 }
 
 #autoplay-toggle.enabled {

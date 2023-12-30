@@ -1,0 +1,16 @@
+[{
+	"player_title": "DPI OTR Archive",
+	"show_hide_info": "show",
+	"total_episodes": "36906",
+	"total_hours": "14529",
+	"days": "605",
+	"months": "20",
+	"years": "1.65",
+	"background_image": "/img/radio_bg066.webp",
+	"background_video": "bokeh.mp4",
+	"main_image": "player/images/radio_top.svg",
+	"stream_url_title": "LISTEN LIVE",
+	"stream_url": "dpiradio.pls",
+	"drop_title": "About the Player",
+	"info_file": "summary.txt"
+}]	

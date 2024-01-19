@@ -1,0 +1,16 @@
+[{
+	"player_title": "The Mystery Project",
+	"show_hide_info": "hide",
+	"total_episodes": "205",
+	"total_hours": "92",
+	"days": "3.8",
+	"months": "0.128",
+	"years": "0.01",
+	"background_image": "https://images.unsplash.com/photo-1571741406122-4cc7cad09e30?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+	"background_video": "snow-bokeh.mp4",
+	"main_image": "player/images/radio_top.svg",
+	"stream_url_title": "LISTEN LIVE",
+	"stream_url": "dpiradio.pls",
+	"drop_title": "About the Mystery Project",
+	"info_file": "summary-tmp.txt"
+}]	

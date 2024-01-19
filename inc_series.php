@@ -1,3 +1,7 @@
+<div class="background-overlay" style="background-image: url(img/radio_bg.webp)"></div>
+<div class="background-overlay" style="background-image: url(<?php echo $background_image;?>)"></div>
+<div class="background-dark"></div>
+
 <div class="show-title episodes">
 	<div class="title-flex menu">
 	  <img class="menu-btn" src="img/menu.svg"/>
@@ -62,18 +66,32 @@
   </div>
   <div class="series-info">
 	<div class="info-box">
-		<img class="close-info" src="img/close_btn.svg"/>
-	  <div>Show Info - Eps: <?php echo $allEpisode; ?> | Date: <?php echo($year);?></div>
-	  <div>
-	  <?php if( isset( $info[0]->info ) ): ?>
-		  <?php echo $summary ;?>
-	  <?php endif; ?>
-	  
-	  <?php if ( $summary ): ?>
-		 <?php echo $summary; ?>
-	  <?php endif; ?>
+		
+		<div class="close-info">
+		<div class="close-container"><img src="img/close_btn.svg"/></div>
+		</div>
+
+			<?php if( isset( $background_image ) ): ?>
+				<div>
+	   		<div class="info-image" style="background-image: url(img/radio_bg.webp)" >
+		 		<img style="background-image: url('<?php echo $background_image;?>')"  src="/img/trans.webp"/>
+		 		<div class="info-overlay">
+					 <div class="top-border"></div>
+		 				<?php echo $title;?>
+		 			<div class="details">= Episodes: <?php echo $allEpisode; ?> | Date: <?php echo($year);?> =</div>
+					<div class="bottom-border"></div>
+	 			</div>
+	   		</div>
+			<?php if ( $summary ): ?>
+		 		<div class="info-summary">
+		 		<?php echo $summary; ?>
+	 			</div>
+	  		<?php endif; ?>
+			<?php endif; ?>
+	
 	  </div>	
 	</div>
   </div>
-  <audio class="audio-player" src="" id="audio-player" controls></audio>
+  <audio src="stationID.mp3" class="audio-player" src="" id="audio-player" controls></audio>
+  <img class="scroll-btn" id="scrollButton" src="img/locate.svg"/>
   <script src="https://unpkg.com/plyr@3"></script><script src="player_script.js"></script> 

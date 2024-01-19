@@ -1,3 +1,14 @@
+
+<?php if( $background_video ): ?>
+  
+  <div class="video">
+  
+	<video id="video_background" poster="img/radio_bg.webp" class="" autoplay="" muted="" playsinline="" loop="" src="<?php echo $background_video; ?>" ></video>
+	  
+  </div>
+  
+<?php endif; ?>
+
 <div class="show-title">
 	<div class="title-flex menu"><img class="menu-btn" src="img/menu.svg"/></div>
 	 <div class="title-flex right" id="autoplay-toggle" class="enabled"></div>

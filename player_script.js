@@ -4,6 +4,7 @@ const player = new Plyr('#audio-player');
 const tracks = document.querySelectorAll(".track");
 const audioPlayer = document.querySelector("#audio-player");
 const autoplayToggle = document.querySelector("#autoplay-toggle");
+const scrollBtn = document.querySelector(".scroll-btn");
 
 let currentTrack = 0;
 let isPlaying = false;
@@ -17,6 +18,7 @@ autoplayToggle.addEventListener("click", () => {
 tracks.forEach((track, index) => {
   track.addEventListener("click", () => {
     track.classList.add("active");
+    scrollBtn.classList.add("show");
     audioPlayer.src = track.dataset.src;
     if (currentTrack !== index) {
       tracks[currentTrack].classList.remove("active");
@@ -56,3 +58,9 @@ audioPlayer.addEventListener("play", () => {
   });
 });
 
+document.getElementById("scrollButton").addEventListener("click", function() {
+    const activeTrack = document.querySelector(".track.active");
+    if (activeTrack) {
+        activeTrack.scrollIntoView({ behavior: "smooth" }); // You can also use "auto" for instant scrolling
+    }
+});

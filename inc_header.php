@@ -4,6 +4,7 @@
   error_reporting(E_ALL);
   if(strpos($_SERVER['REQUEST_URI'], 'menu') !== false){
 	 $menu = $_GET['menu']; 
+	 $title = '';
 	 $menuTitle = htmlspecialchars($_GET["menu"]);
 	 $menuData = file_get_contents('menu-'. $menuTitle .'.json'); // put the contents of the file into a variable
 	 $menuItems = json_decode($menuData); // decode the JSON feed	
